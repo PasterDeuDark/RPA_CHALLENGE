@@ -52,7 +52,7 @@ class AlertGenerator:
             for record in records:
                 order_status = record["shipping_status"]
                 order_date = record["shipping_date"]
-                if order_status in ["returned", "completed"]:
+                if order_status in ["returned", "cancelled"]:
                     returned_or_cancelled += 1
                 if returned_or_cancelled == 3:
                     alert = f"Alert: Customer {customer_id} has 3 or more orders returned or cancelled in the month of {order_date.month}. The orders are: {records}"
